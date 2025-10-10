@@ -1,0 +1,23 @@
+{
+  description = "A collection of internet_wizard's opinionated nix flake templates";
+
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  };
+
+  outputs = {self}: {
+    templates = {
+      flake-template = {
+        path = ./flake-template;
+        description = "A very basic, opinionated flake";
+      };
+
+      rust = {
+        path = ./rust;
+        description = "A rust development flake that adds the necessary tooling and development environment for excellent automation";
+      };
+
+      defaultTemplate = self.templates.flake;
+    };
+  };
+}
