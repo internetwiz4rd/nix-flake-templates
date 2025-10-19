@@ -1,10 +1,6 @@
 {
   description = "A collection of internet_wizard's opinionated nix flake templates";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-  };
-
   outputs = {self}: {
     templates = {
       flake-template = {
