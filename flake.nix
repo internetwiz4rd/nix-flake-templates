@@ -12,8 +12,8 @@
         path = ./rust;
         description = "A rust development flake that adds the necessary tooling and development environment for excellent automation";
       };
-
-      defaultTemplate = self.templates.flake-template;
     };
+
+    defaultTemplate = self.templates.flake-template;
   };
 }
