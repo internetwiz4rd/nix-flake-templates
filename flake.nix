@@ -1,5 +1,5 @@
 {
-  description = "A collection of internet_wizard's opinionated nix flake templates";
+  description = "A collection of of-the-star's opinionated nix flake templates";
 
   outputs = {self}: {
     templates = {
@@ -11,6 +11,11 @@
       rust = {
         path = ./rust;
         description = "A rust development flake that adds the necessary tooling and development environment for excellent automation";
+      };
+
+      python = {
+        path = ./python;
+        description = "A python development flake";
       };
     };
 

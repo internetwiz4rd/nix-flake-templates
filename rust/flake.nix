@@ -1,5 +1,5 @@
 {
-  description = "internet_wizard's custom rust development flake";
+  description = "of-the-star's custom rust development flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
