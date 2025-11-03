@@ -19,6 +19,6 @@
       };
     };
 
-    defaultTemplate = self.templates.flake-template;
+    templates.default = self.templates.flake-template;
   };
 }

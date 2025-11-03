@@ -14,6 +14,8 @@
     flake-utils.lib.eachDefaultSystem (
       system: let
         pkgs = import nixpkgs {inherit system;};
+        name = "foo";
+        src = ./.;
       in {
         default = pkgs.hello;
         devShell = with pkgs;
@@ -24,6 +26,12 @@
             ];
             venvDir = "./.venv";
           };
+
+        packages.default = derivation {
+          inherit system name src;
+          builder = with pkgs; "${bash}/bin/bash";
+          args = ["-c" "echo Building! > $out"];
+        };
       }
     );
 }
