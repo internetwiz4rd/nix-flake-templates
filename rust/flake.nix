@@ -5,7 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     naersk.url = "github:nix-community/naersk/master";
     flake-utils.url = "github:numtide/flake-utils";
-
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +24,7 @@
           inherit system;
           overlays = [(import rust-overlay)];
         };
+
         toolchain = pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
 
         naersk-package = pkgs.callPackage naersk {
@@ -38,17 +38,18 @@
             buildInputs = [
               cargo
               cargo-info
+              clippy
+              just
+              rust-analyzer
               rustc
               rustfmt
-              clippy
-              rust-analyzer
-              just
 
+              bat
               eza
               fd
               fzf
-              bat
             ];
+
             RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
             shellHook = ''
