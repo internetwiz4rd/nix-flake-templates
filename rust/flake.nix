@@ -34,7 +34,6 @@
           clippy = toolchain;
         };
       in {
-        packages.default = naersk-lib.buildPackage ./.;
         devShell = with pkgs;
           mkShell {
             buildInputs = [
@@ -58,6 +57,8 @@
               alias find=fd
             '';
           };
+
+        packages.default = naersk-lib.buildPackage ./.;
       }
     );
 }

@@ -17,10 +17,21 @@
         name = "foo";
         src = ./.;
       in {
+        devShell = with pkgs;
+          mkShell {
+            buildInputs = [
+              # Place development dependencies in here
+              # package managers, build tools, debuggers, etc
+
+              # for example
+              gnumake # this is a build tool, you just add the package name
+            ];
+          };
+
         packages.default = derivation {
           inherit system name src;
           builder = with pkgs; "${bash}/bin/bash";
-          args = ["-c" "echo Building! > $out"];
+          args = ["-c" "echo foo > $out"];
         };
       }
     );
