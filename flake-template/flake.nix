@@ -17,8 +17,6 @@
         name = "foo";
         src = ./.;
       in {
-        default = pkgs.hello;
-
         packages.default = derivation {
           inherit system name src;
           builder = with pkgs; "${bash}/bin/bash";

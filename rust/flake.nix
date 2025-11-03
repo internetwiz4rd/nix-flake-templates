@@ -34,7 +34,7 @@
           clippy = toolchain;
         };
       in {
-        defaultPackage = naersk-lib.buildPackage ./.;
+        packages.default = naersk-lib.buildPackage ./.;
         devShell = with pkgs;
           mkShell {
             buildInputs = [

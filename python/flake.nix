@@ -17,7 +17,6 @@
         name = "foo";
         src = ./.;
       in {
-        default = pkgs.hello;
         devShell = with pkgs;
           mkShell {
             buildInputs = [
