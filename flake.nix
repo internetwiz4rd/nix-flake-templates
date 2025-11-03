@@ -3,9 +3,9 @@
 
   outputs = {self}: {
     templates = {
-      flake-template = {
-        path = ./flake-template;
-        description = "A very basic, opinionated flake";
+      default = {
+        path = ./default;
+        description = "A basic flake for development environments and packaging";
       };
 
       rust = {
@@ -18,7 +18,5 @@
         description = "A python development flake";
       };
     };
-
-    templates.default = self.templates.flake-template;
   };
 }
