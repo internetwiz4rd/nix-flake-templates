@@ -6,18 +6,22 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-  }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
     flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = import nixpkgs {inherit system;};
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
         name = "foo";
         src = ./.;
-      in {
-        devShell = with pkgs;
+      in
+      {
+        devShell =
+          with pkgs;
           mkShell {
             buildInputs = [
               python3Packages.python
@@ -29,7 +33,10 @@
         packages.default = derivation {
           inherit system name src;
           builder = with pkgs; "${bash}/bin/bash";
-          args = ["-c" "echo Building! > $out"];
+          args = [
+            "-c"
+            "echo Building! > $out"
+          ];
         };
       }
     );
